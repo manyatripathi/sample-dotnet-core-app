@@ -1,5 +1,5 @@
 # This Dockerfile demonstrates how to use Docker to create an image
-# after a build is produced and tested by Azure Pipelines
+# after a build is produced and tested by Azure Pipeline
 # See http://docs.microsoft.com/azure/devops/pipelines/languages/docker for more information
 
 # Create a container with the compiled asp.net core app
