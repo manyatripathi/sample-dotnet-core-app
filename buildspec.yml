@@ -10,7 +10,6 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - docker login –u manya97 –p manya@docker
     finally:
       - echo This always runs even if the login command fails 
   build:
