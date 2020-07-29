@@ -5,12 +5,14 @@ phases:
     commands:
       - echo Entered the install phase...
       - dotnet restore
+      - dotnet tool install --global dotnet-sonarscanner
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - docker login -u "manya97" -p "Manya@docker"
+      - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      - docker login -u "manya97" -p "manya@docker"
     finally:
       - echo This always runs even if the login command fails
   build:
