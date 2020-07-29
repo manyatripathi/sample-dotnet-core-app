@@ -11,7 +11,6 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
       - docker login -u "manya97" -p "manya@docker"
     finally:
       - echo This always runs even if the login command fails
@@ -26,3 +25,6 @@ phases:
     commands:
       - echo Entered the post_build phase...
       - dotnet publish -o ./PublishOutput
+      - docker build -t dotnetbuild:1 .
+      - docker tag dotnetbuild:1 manya97/dotnetbuild:1 
+      - docker push manya97/dotnetbuild:1
