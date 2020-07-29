@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-      - mvn clean compile
+      - dotnet restore
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
@@ -17,10 +17,10 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - mvn install
+      - dotnet build
     finally:
       - echo This always runs even if the install command fails
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - echo Build completed on `date`
+      - dotnet publish -o PublishOutput
