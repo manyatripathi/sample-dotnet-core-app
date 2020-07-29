@@ -10,8 +10,9 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
+      - docker login -u "manya97" -p "Manya@docker"
     finally:
-      - echo This always runs even if the login command fails 
+      - echo This always runs even if the login command fails
   build:
     commands:
       - echo Entered the build phase...
@@ -22,4 +23,4 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - dotnet publish -o PublishOutput
+      - dotnet publish -o ./PublishOutput
